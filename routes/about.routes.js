@@ -51,6 +51,7 @@ router.post("/about", async (req, res, next) => {
   } catch (error) {
     res.json(error);
   }
+  /* comment to delete */
 });
 
 module.exports = router;
