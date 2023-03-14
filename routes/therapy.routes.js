@@ -4,6 +4,8 @@ const axios = require("axios");
 
 // Require the Therapy model in order to interact with the database
 const Therapy = require("../models/Therapy.model");
+const fileUploader = require("../config/cloudinary.config");
+
 
 //get all
 router.get("/therapies", async (req, res, next) => {
@@ -27,6 +29,19 @@ router.post("/therapies", async (req, res, next) => {
     res.json(error);
   }
 });
+
+
+
+// POST '/api/therapies' => for saving a new therapy in the database
+router.post('/therapies', (req, res, next) => {
+ 
+  Therapy.create(req.body)
+    .then(createdTherapy => {
+      res.status(200).json(createdTherapy);
+    })
+    .catch(err => next(err));
+});
+ 
 
 //Read (by id)
 
