@@ -13,7 +13,7 @@ const therapySchema = new Schema(
       {
         type: String,
         default:
-          "https://images.pexels.com/photos/5699466/pexels-photo-5699466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "https://res.cloudinary.com/datglss57/image/upload/v1678807732/maria-psicologa/cenqrqgeemxedj6swlfp.jpg",
       },
     ],
     description: {
