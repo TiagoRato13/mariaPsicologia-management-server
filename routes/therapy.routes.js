@@ -91,7 +91,7 @@ router.delete("/therapies/:id", async (req, res, next) => {
     res.json("The provided id is not valid");
   }
 
-  //remove the project
+  //remove the therapy
   try {
     await Therapy.findByIdAndRemove(id);
     res.json({ message: `Therapy with the id ${id} deleted successfully` });
