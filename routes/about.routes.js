@@ -18,13 +18,14 @@ router.get("/about", async (req, res, next) => {
 //Update
 
 router.put("/about/edit/:id", async (req, res, next) => {
-  const { name, education, image, bigAbout, smallAbout } = req.body;
+  const { name, education, imageHome, imageAbout, bigAbout, smallAbout } =
+    req.body;
   const { id } = req.params;
 
   try {
     const updatedAbout = await About.findByIdAndUpdate(
       id,
-      { name, education, image, bigAbout, smallAbout },
+      { name, education, imageHome, imageAbout, bigAbout, smallAbout },
       { new: true }
     );
 
@@ -36,13 +37,15 @@ router.put("/about/edit/:id", async (req, res, next) => {
 
 //create
 router.post("/about", async (req, res, next) => {
-  const { name, education, image, bigAbout, smallAbout } = req.body;
+  const { name, education, imageHome, imageAbout, bigAbout, smallAbout } =
+    req.body;
 
   try {
     let about = await About.create({
       name,
       education,
-      image,
+      imageHome,
+      imageAbout,
       bigAbout,
       smallAbout,
     });

@@ -10,7 +10,8 @@ const monthlySubjectSchema = new Schema(
     },
     image: {
       type: String,
-      default: "https://images.pexels.com/photos/54300/pexels-photo-54300.jpeg",
+      default:
+        "https://res.cloudinary.com/datglss57/image/upload/v1678807732/maria-psicologa/cenqrqgeemxedj6swlfp.jpg",
     },
     description: {
       type: String,

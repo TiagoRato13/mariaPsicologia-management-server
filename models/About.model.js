@@ -12,13 +12,17 @@ const aboutSchema = new Schema(
       type: String,
       required: true,
     },
-    image: [
-      {
-        type: String,
-        default:
-          "https://images.pexels.com/photos/5699466/pexels-photo-5699466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      },
-    ],
+    imageHome: {
+      type: String,
+      default:
+        "https://res.cloudinary.com/datglss57/image/upload/v1678807826/maria-psicologa/ucdvjpxfyeziylzi84lm.jpg",
+    },
+    imageAbout: {
+      type: String,
+      default:
+        "https://res.cloudinary.com/datglss57/image/upload/v1678807826/maria-psicologa/ucdvjpxfyeziylzi84lm.jpg",
+    },
+
     bigAbout: {
       type: String,
       required: true,
