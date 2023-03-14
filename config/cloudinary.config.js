@@ -15,7 +15,6 @@ const storage = new CloudinaryStorage({
   params: {
     allowed_formats: ["jpg", "png", "pdf"],
     folder: "maria-psicologa",
-    /* resource_type: "raw", // => this is in case you want to upload other types of files, not just images */
    /*  resource_type: "raw",  */// => this line had to be commented because if was giving issues regarding the upload on cloudinay
   },
 });
