@@ -113,7 +113,7 @@ router.delete("/books/:id", async (req, res, next) => {
     res.json("The provided id is not valid");
   }
 
-  //remove the project
+  //remove the book
   try {
     await Book.findByIdAndRemove(id);
     res.json({ message: `Book with the id ${id} deleted successfully` });

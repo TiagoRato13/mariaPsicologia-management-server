@@ -40,14 +40,14 @@ router.post('/therapies', (req, res, next) => {
       res.status(200).json(createdTherapy);
     })
     .catch(err => next(err));
-});
- 
-
-//Read (by id)
-
-router.get("/therapies/:id", async (req, res, next) => {
-  const { id } = req.params;
-
+  });
+  
+  
+  //Read (by id)
+  
+  router.get("/therapies/:id", async (req, res, next) => {
+    const { id } = req.params;
+    
   try {
     const therapy = await Therapy.findById(id);
 
@@ -56,6 +56,26 @@ router.get("/therapies/:id", async (req, res, next) => {
     res.json(error);
   }
 });
+
+//Delete
+
+router.delete("/therapies/:id", async (req, res, next) => {
+  const { id } = req.params;
+
+   
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    res.json("The provided id is not valid");
+} 
+
+  //remove the therapy
+  try {
+    await Therapy.findByIdAndRemove(id);
+    res.json({ message: `Therapy with the id ${id} deleted successfully` });
+  } catch (error) {
+    res.json(error);
+  }
+});
+
 
 //Update
 
@@ -81,23 +101,5 @@ router.put("/therapies/edit/:id", async (req, res, next) => {
   }
 });
 
-//Delete
-
-router.delete("/therapies/:id", async (req, res, next) => {
-  const { id } = req.params;
-
-  //check if id is a mongoDB valid ID
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    res.json("The provided id is not valid");
-  }
-
-  //remove the therapy
-  try {
-    await Therapy.findByIdAndRemove(id);
-    res.json({ message: `Therapy with the id ${id} deleted successfully` });
-  } catch (error) {
-    res.json(error);
-  }
-});
 
 module.exports = router;
