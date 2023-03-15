@@ -16,11 +16,11 @@ const contactSchema = new Schema(
       required: [true, "morada is required."],
     },
     facebook: {
-      type: [],
+      type: String,
       required: true,
     },
     instagram: {
-      type: [],
+      type: String,
       required: true,
     },
   },
