@@ -15,16 +15,35 @@ router.get("/monthly-subject", async (req, res, next) => {
   }
 });
 
+//Delete
+
+router.delete("/monthly-subject/:id", async (req, res, next) => {
+  const { id } = req.params;
+
+   
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    res.json("The provided id is not valid");
+} 
+
+  //remove the therapy
+  try {
+    await MonthlySubject.findByIdAndRemove(id);
+    res.json({ message: `Monthly Subject with the id ${id} deleted successfully` });
+  } catch (error) {
+    res.json(error);
+  }
+});
+
 //Update
 
 router.put("/monthly-subject/edit/:id", async (req, res, next) => {
-  const { title, description, image } = req.body;
+  const { title, description, image, month } = req.body;
   const { id } = req.params;
 
   try {
     const updatedMonthlySubject = await MonthlySubject.findByIdAndUpdate(
       id,
-      { title, description, image },
+      { title, description, image, month },
       { new: true }
     );
 
@@ -36,13 +55,14 @@ router.put("/monthly-subject/edit/:id", async (req, res, next) => {
 
 //create
 router.post("/monthly-subject", async (req, res, next) => {
-  const { title, description, image } = req.body;
+  const { title, description, image, month } = req.body;
 
   try {
     const monthlySubject = await MonthlySubject.create({
       title,
       description,
       image,
+      month,
     });
 
     res.json(monthlySubject);

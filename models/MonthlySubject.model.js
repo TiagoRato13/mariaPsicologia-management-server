@@ -17,6 +17,10 @@ const monthlySubjectSchema = new Schema(
       type: String,
       required: [true, "Description is required."],
     },
+    month: {
+      type: String,
+      required: [true, "Month is required"],
+    },
   },
   {
     timestamps: true,
