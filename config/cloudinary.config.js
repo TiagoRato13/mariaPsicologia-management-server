@@ -13,9 +13,9 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    allowed_formats: ["jpg", "png", "pdf"],
+    allowed_formats: ["jpg", "png", "pdf", "jpeg"],
     folder: "maria-psicologa",
-   /*  resource_type: "raw",  */// => this line had to be commented because if was giving issues regarding the upload on cloudinay
+    /*  resource_type: "raw",  */ // => this line had to be commented because if was giving issues regarding the upload on cloudinay
   },
 });
 
