@@ -6,9 +6,8 @@ router.get("/", (req, res, next) => {
   res.json("All good in here");
 });
 
-
 router.post("/upload", fileUploader.single("image"), (req, res, next) => {
-  console.log("file is: ", req.file)
+  console.log("file is: ", req.file);
 
   if (!req.file) {
     next(new Error("No file uploaded!"));
