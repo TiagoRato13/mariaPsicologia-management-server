@@ -30,11 +30,13 @@ const bookSchema = new Schema(
       required: true,
       trim: true,
     },
-    languages: {
-      type: String,
-      required: true,
-      trim: true,
-    },
+    languages: [
+      {
+        type: String,
+        required: true,
+        trim: true,
+      },
+    ],
     pages: {
       type: Number,
       required: true,
