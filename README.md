@@ -79,27 +79,6 @@ Pages:
 
 - EditProfilePage
 
-- CreateTournamentPage
-
-- TournamentListPage
-
-- TournamentDetailsPage
-
-- PlayerDetailsPage
-
-- RankingsPage
-
-  
-
-Components:
-
-- PlayerCard
-- TournamentCard
-- Navbar
-
-
-
-
 
 
 ## Services
